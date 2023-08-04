@@ -1,18 +1,17 @@
-module "vpc" {
-  source = "terraform-aws-modules/vpc/aws"
-
-  name = "harish-vpc"
-  cidr = "10.0.0.0/16"
-
-  azs             = ["ap-southeast-1a", "ap-southeast-1b"]
-  private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
-  public_subnets  = ["10.0.101.0/24", "10.0.102.0/24"]
-
-  enable_nat_gateway = true
-  enable_vpn_gateway = true
+resource "aws_vpc" "example" {
+  cidr_block = "172.16.0.0/16"
 
   tags = {
-    Terraform = "true"
-    Environment = "dev"
+    Name = "tf-example"
+  }
+}
+
+resource "aws_subnet" "example" {
+  vpc_id            = aws_vpc.example.id
+  cidr_block        = "172.16.10.0/24"
+  availability_zone = "ap-southeast-1a"
+
+  tags = {
+    Name = "tf-example"
   }
 }
