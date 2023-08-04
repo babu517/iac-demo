@@ -1,6 +1,6 @@
 resource "aws_instance" "harish-waseem" {
-  ami_id        = "ami-00c254560ada10b77"
-  instance_type = "t3.micro"
+  ami_id        = "ami-0df7a207adb9748c7"
+  instance_type = "X5.large"
 
   tags = {
     Name = "HelloWorld"
