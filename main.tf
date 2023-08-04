@@ -5,4 +5,4 @@ resource "aws_instance" "harish-waseem" {
   tags = {
     Name = "HelloWorld"
   }
-}
+ }
